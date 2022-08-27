@@ -3,6 +3,7 @@
 # Created By: Matthew Ruiz
 
 from ast import Try
+from unicodedata import name
 from urllib import response
 from webbrowser import get
 import requests, random, json
@@ -13,6 +14,19 @@ import requests, random, json
 api_url_base = "https://pokeapi.co/api/v2/pokemon/"
 pokemonRange = 151
 
+#
+# Class Definitions
+#
+class Pokemon:
+  def __init__(self, name, type1, type2="none"):
+    self.name = name
+    self.type1 = type1
+    self.type2 = type2
+
+
+#
+# Function Definitions
+#
 
 def getRandomPokemon():
     api_url = api_url_base + str(random.randint(0,pokemonRange))
@@ -25,8 +39,11 @@ def getRandomPokemon():
         pokemonTypeSecondary = response['types'][1]['type']
     except:
       pokemonTypePrimary = response['types'][0]['type']['name']
+      pokemonTypeSecondary = "none"
 
-    return response
+    randomPokemon = Pokemon(pokemonName, pokemonTypePrimary, pokemonTypeSecondary)
+
+    return randomPokemon
 
 
 getRandomPokemon()
