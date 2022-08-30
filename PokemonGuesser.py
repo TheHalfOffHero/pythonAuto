@@ -26,7 +26,6 @@ class Pokemon:
   def __str__(self) -> str:
     return 'Your Random Pokemon: {name}    Type: {type1}      Secondary Type: {type2}'.format(name=self.name,type1=self.type1,type2=self.type2 )
 
-#
 
 #
 # Function Definitions
