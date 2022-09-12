@@ -33,7 +33,7 @@ class Pokemon:
 #
 
 def getRandomPokemon():
-    api_url = api_url_base + str(random.randint(0,pokemonRange))
+    api_url = api_url_base + str(random.randint(1,pokemonRange))
     jsonString = requests.get(api_url)
     response = jsonString.json()
 
